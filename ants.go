@@ -58,6 +58,9 @@ var (
 
 	// ErrPoolOverload will be returned when the pool is full and no workers available.
 	ErrPoolOverload = errors.New("too many goroutines blocked on submit or Nonblocking is set")
+
+	ErrSubmitTimeout = errors.New("submit error: timed out")
+
 	//---------------------------------------------------------------------------
 
 	// workerChanCap determines whether the channel of a worker should be a buffered channel

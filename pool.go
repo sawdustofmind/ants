@@ -27,7 +27,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/panjf2000/ants/v2/internal"
+	"github.com/pnvasko/ants/internal"
 )
 
 // Pool accepts the tasks from client, it limits the total of goroutines to a given number by recycling goroutines.
@@ -136,6 +136,29 @@ func NewPool(size int, options ...Option) (*Pool, error) {
 }
 
 // ---------------------------------------------------------------------------
+// Todo add SubmitTimeout too repo
+
+func (p *Pool) SubmitTimeout(timeout time.Duration, task func()) error {
+	return p.submitTimeout(time.After(timeout), task)
+}
+
+func (p *Pool) submitTimeout(timeout <-chan time.Time, task func()) error {
+	if atomic.LoadInt32(&p.release) == CLOSED {
+		return ErrPoolClosed
+	}
+
+	var w *goWorker
+	if w = p.retrieveWorker(); w == nil {
+		return ErrPoolOverload
+	}
+	// Todo add timeout too worker
+	select {
+	case <-timeout:
+		return ErrSubmitTimeout
+	case w.task <- task:
+		return nil
+	}
+}
 
 // Submit submits a task to this pool.
 func (p *Pool) Submit(task func()) error {
