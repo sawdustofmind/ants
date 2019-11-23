@@ -23,6 +23,7 @@
 package ants
 
 import (
+	"fmt"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -66,6 +67,7 @@ type Pool struct {
 func (p *Pool) periodicallyPurge() {
 	heartbeat := time.NewTicker(p.options.ExpiryDuration)
 	defer heartbeat.Stop()
+	fmt.Println("periodicallyPurge ExpiryDuration: ", p.options.ExpiryDuration)
 
 	for range heartbeat.C {
 		if atomic.LoadInt32(&p.release) == CLOSED {
@@ -91,6 +93,7 @@ func (p *Pool) periodicallyPurge() {
 			p.cond.Broadcast()
 		}
 	}
+	fmt.Println("periodicallyPurge stop")
 }
 
 // NewPool generates an instance of ants pool.
@@ -143,6 +146,7 @@ func (p *Pool) SubmitTimeout(timeout time.Duration, task func()) error {
 }
 
 func (p *Pool) submitTimeout(timeout <-chan time.Time, task func()) error {
+	fmt.Println("submitTimeout Free pool:", p.Free())
 	if atomic.LoadInt32(&p.release) == CLOSED {
 		return ErrPoolClosed
 	}
@@ -162,6 +166,7 @@ func (p *Pool) submitTimeout(timeout <-chan time.Time, task func()) error {
 
 // Submit submits a task to this pool.
 func (p *Pool) Submit(task func()) error {
+	fmt.Println("Submit Free pool:", p.Free())
 	if atomic.LoadInt32(&p.release) == CLOSED {
 		return ErrPoolClosed
 	}
