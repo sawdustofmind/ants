@@ -5,12 +5,12 @@
 <br/><br/>
 <a title="Build Status" target="_blank" href="https://travis-ci.com/panjf2000/ants"><img src="https://img.shields.io/travis/com/panjf2000/ants?style=flat-square"></a>
 <a title="Codecov" target="_blank" href="https://codecov.io/gh/panjf2000/ants"><img src="https://img.shields.io/codecov/c/github/panjf2000/ants?style=flat-square"></a>
-<a title="Go Report Card" target="_blank" href="https://goreportcard.com/report/github.com/panjf2000/ants"><img src="https://goreportcard.com/badge/github.com/panjf2000/ants?style=flat-square"></a>
-<a title="Ants on Sourcegraph" target="_blank" href="https://sourcegraph.com/github.com/panjf2000/ants?badge"><img src="https://sourcegraph.com/github.com/panjf2000/ants/-/badge.svg?style=flat-square"></a>
+<a title="Go Report Card" target="_blank" href="https://goreportcard.com/report/github.com/sawdustofmind/ants"><img src="https://goreportcard.com/badge/github.com/sawdustofmind/ants?style=flat-square"></a>
+<a title="Ants on Sourcegraph" target="_blank" href="https://sourcegraph.com/github.com/sawdustofmind/ants?badge"><img src="https://sourcegraph.com/github.com/sawdustofmind/ants/-/badge.svg?style=flat-square"></a>
 <br/>
-<a title="GolangCI" target="_blank" href="https://golangci.com/r/github.com/panjf2000/ants"><img src="https://golangci.com/badges/github.com/panjf2000/ants.svg"></a>
-<a title="Doc for ants" target="_blank" href="https://gowalker.org/github.com/panjf2000/ants?lang=en-US"><img src="https://img.shields.io/badge/api-reference-blue.svg?style=flat-square"></a>
-<a title="Release" target="_blank" href="https://github.com/panjf2000/ants/releases"><img src="https://img.shields.io/github/release/panjf2000/ants.svg?style=flat-square"></a>
+<a title="GolangCI" target="_blank" href="https://golangci.com/r/github.com/sawdustofmind/ants"><img src="https://golangci.com/badges/github.com/sawdustofmind/ants.svg"></a>
+<a title="Doc for ants" target="_blank" href="https://gowalker.org/github.com/sawdustofmind/ants?lang=en-US"><img src="https://img.shields.io/badge/api-reference-blue.svg?style=flat-square"></a>
+<a title="Release" target="_blank" href="https://github.com/sawdustofmind/ants/releases"><img src="https://img.shields.io/github/release/panjf2000/ants.svg?style=flat-square"></a>
 <a title="Mentioned in Awesome Go" target="_blank" href="https://github.com/avelino/awesome-go"><img src="https://awesome.re/mentioned-badge-flat.svg"></a>
 </p>
 
@@ -49,13 +49,13 @@ Library `ants` implements a goroutine pool with fixed capacity, managing and rec
 ### For `ants` v1
 
 ``` powershell
-go get -u github.com/panjf2000/ants
+go get -u github.com/sawdustofmind/ants
 ```
 
 ### For `ants` v2
 
 ```powershell
-go get -u github.com/panjf2000/ants/v2
+go get -u github.com/sawdustofmind/ants
 ```
 
 ## 🛠 How to use
@@ -70,7 +70,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/panjf2000/ants/v2"
+	"github.com/sawdustofmind/ants"
 )
 
 var sum int32
@@ -131,7 +131,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/panjf2000/ants/v2"
+	"github.com/sawdustofmind/ants"
 )
 
 type Request struct {
@@ -339,7 +339,7 @@ In above benchmark result, the first and second benchmarks performed test cases 
 
 Please read our [Contributing Guidelines](CONTRIBUTING.md) before opening a PR and thank you to all the developers who already made contributions to `ants`!
 
-[![](https://opencollective.com/ants/contributors.svg?width=890&button=false)](https://github.com/panjf2000/ants/graphs/contributors)
+[![](https://opencollective.com/ants/contributors.svg?width=890&button=false)](https://github.com/sawdustofmind/ants/graphs/contributors)
 
 ## 📄 License
 
